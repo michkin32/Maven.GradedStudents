@@ -35,7 +35,7 @@ public class Student {
 
     }
     public String getExamScores(){
-        String scores = "Exam Scores:\n";
+        String scores = "> Exam Scores:\n";
         Integer count = 1;
         for (int i = 0; i<= examScores.size() -1; i++){
             scores += "\tExam " + count + " -> " + Math.round(examScores.get(i)) + "\n";
@@ -44,7 +44,23 @@ public class Student {
         return scores;
     }
 
-    public void addExamScore() {
+    public void addExamScore(Double score) {
+        examScores.add(score);
 
+    }
+    public void setExamScore(int examNumber, double newScore){
+        examScores.set(examNumber, newScore);
+    }
+    public Integer getAverageExamScore(){
+        Double sum = 0.0;
+        for (int i = 0; i <= examScores.size() -1; i++){
+            sum += examScores.get(i);
+        }
+        return Math.toIntExact(Math.round(sum / examScores.size() - 1));
+    }
+    @Override
+    public String toString(){
+        return "Student Name: " + getFirstName() + " " + getLastNAme() + "\n" + "> Average Score: " +
+                getAverageExamScore() + "\n" + getExamScores();
     }
 }
