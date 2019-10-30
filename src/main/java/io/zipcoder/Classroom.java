@@ -36,14 +36,10 @@ public class Classroom {
                 break;
             }
         }
-        /*Student[] newArr = new Student[students.length + 1];
 
-        for (int i = 0; i <= students.length -1; i++ ){
-            if (i != newArr.length){
-            newArr[i] = students[i];
-            }else {
-                newArr[i + 1] = student;
-            }*/
+        }
+        public void removeStudent(){
+            for(int i = 0; i ){}
         }
 
 
