@@ -86,4 +86,19 @@ public class ClassroomTest {
         System.out.println(postEnrollmentAsString);
         System.out.println();
     }
-}
+
+    @Test
+    public void getStudentByScore() {
+        ArrayList<Double> s2Scores = new ArrayList<Double>(Arrays.asList(100.0,150.0));
+        ArrayList<Double> s1Scores = new ArrayList<Double>(Arrays.asList(225.0,25.0));
+
+        Student s1 = new Student("student", "one", s1Scores);
+        Student s2 = new Student("student", "two", s2Scores);
+        Student s3 = new Student("student", "one", s3Scores);
+        Student s4 = new Student("student", "two", s4Scores);
+
+        Student[] students = {s1, s2};
+        Classroom classroom = new Classroom(students);
+    }
+    }
+

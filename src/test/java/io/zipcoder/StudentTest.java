@@ -121,4 +121,8 @@ public class StudentTest {
         System.out.print(student.toString());
         Assert.assertEquals(expected,actual);
     }
+
+    @Test
+    public void compareTo() {
+    }
 }

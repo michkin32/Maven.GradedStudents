@@ -1,6 +1,8 @@
 package io.zipcoder;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Classroom {
 
@@ -39,9 +41,25 @@ public class Classroom {
 
         }
         public void removeStudent(){
-            for(int i = 0; i ){}
+        students = new Student[MaxNumberOfStudents];
+            for(int i = 0; i < students.length; i++){
+                for(int j = 0; j < students.length - i; j++ ){
+                    if (students[i].equals(students[i].getFirstName()) && students[i].equals(students[i].getLastNAme())){
+                        students[i] = null;
+                    }
+                }
+                }
+
+            }
+            public Student[] getStudentByScore(){
+                Arrays.sort(students, Collections.reverseOrder());
+                        return students;
+                }
+
+
+
         }
 
 
-    }
+
 
