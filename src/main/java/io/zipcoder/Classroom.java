@@ -40,14 +40,15 @@ public class Classroom {
         }
 
         }
-        public void removeStudent(){
-        students = new Student[MaxNumberOfStudents];
+        public void removeStudent(String firstName, String lastName){
+
             for(int i = 0; i < students.length; i++){
                 for(int j = 0; j < students.length - i; j++ ){
-                    if (students[i].equals(students[i].getFirstName()) && students[i].equals(students[i].getLastNAme())){
+                    if (students[i].firstName.equals(firstName) && students[i].lastNAme.equals(lastName)){
                         students[i] = null;
                     }
                 }
+
                 }
 
             }
