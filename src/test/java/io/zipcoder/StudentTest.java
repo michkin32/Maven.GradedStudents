@@ -10,19 +10,22 @@ public class StudentTest {
 
     @Test
     public void getFirstName() {
+        //Given
+        String firstName = "Donatello";
+        String lastName = "Turtle";
+        ArrayList<Double> examScores = new ArrayList<Double>(Arrays.asList( 100.0, 95.0, 123.0, 96.0 ));
+        Student student = new Student(firstName, lastName, examScores);
+
+        String expected = "Leon";
+        String actual = student.getFirstName();
     }
 
-    @Test
-    public void setFirstName() {
-    }
 
     @Test
     public void getLastNAme() {
     }
 
-    @Test
-    public void setLastNAme() {
-    }
+
 
     @Test
     public void getNumberOfExamsTaken() {
@@ -122,7 +125,5 @@ public class StudentTest {
         Assert.assertEquals(expected,actual);
     }
 
-    @Test
-    public void compareTo() {
-    }
+
 }
