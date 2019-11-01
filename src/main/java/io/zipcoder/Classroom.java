@@ -20,9 +20,11 @@ public class Classroom {
     public Classroom(){
         this.students = new Student[30];
     }
+
     public Student[] getStudents() {
         return students;
     }
+
     public Double getAverageExamScore(){
         Double average = 0.0;
         for (int i =0; i < students.length; i++){

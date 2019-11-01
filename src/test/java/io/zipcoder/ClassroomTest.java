@@ -1,5 +1,6 @@
 package io.zipcoder;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -16,7 +17,10 @@ public class ClassroomTest {
 
         Student[] students = {s1, s2};
         Classroom classroom = new Classroom(students);
+        Student[] expected = classroom.students;
+        Student[] actual = classroom.getStudents();
 
+        Assert.assertEquals(expected,actual);
 
     }
 
@@ -36,6 +40,10 @@ public class ClassroomTest {
 
         // Then
         System.out.println(output);
+        Double expected = 125.0;
+        Double actual = classroom.getAverageExamScore();
+
+        Assert.assertEquals(expected,actual);
 
     }
 
@@ -94,20 +102,20 @@ public class ClassroomTest {
     public void getStudentByScore() {
         ArrayList<Double> s2Scores = new ArrayList<Double>(Arrays.asList(100.0,150.0));
         ArrayList<Double> s1Scores = new ArrayList<Double>(Arrays.asList(225.0,25.0));
-        ArrayList<Double> s3Scores = new ArrayList<Double>(Arrays.asList(90.0,150.0));
+        ArrayList<Double> s3Scores = new ArrayList<Double>(Arrays.asList(200.0,150.0));
         ArrayList<Double> s4Scores = new ArrayList<Double>(Arrays.asList(75.0,125.0));
 
         Student s1 = new Student("student", "one", s1Scores);
-        Student s2 = new Student("student", "two", s2Scores);
-        Student s3 = new Student("student", "one", s3Scores);
-        Student s4 = new Student("student", "two", s4Scores);
+        Student s2 = new Student("estudent", "two", s2Scores);
+        Student s3 = new Student("student", "three", s3Scores);
+        Student s4 = new Student("student", "four", s4Scores);
 
         Student[] students = {s1, s2, s3, s4};
         Classroom classroom = new Classroom(students);
 
         Student[] preEnrollment = classroom.getStudents();
-        classroom.getStudentByScore();
-        Student[] postEnrollment = classroom.getStudents();
+        Student[] postEnrollment = classroom.getStudentByScore();
+
 
     // Then
     String preEnrollmentAsString = Arrays.toString(preEnrollment);

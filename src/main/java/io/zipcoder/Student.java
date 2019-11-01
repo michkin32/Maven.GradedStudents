@@ -67,13 +67,13 @@ public class Student implements Comparable<Student>{
 
     @Override
     public int compareTo(Student compStu) {
-        if(this.getAverageExamScore() == compStu.getAverageExamScore()){
-        return 0;
+        if(this.getAverageExamScore().equals(compStu.getAverageExamScore())){
+            return (this.firstName).compareTo(compStu.firstName);
         }
 
-        else if(getAverageExamScore() > compStu.getAverageExamScore()){
+        else if(this.getAverageExamScore() > compStu.getAverageExamScore()){
             return 1;
         }
-        return (this.firstName + this.lastNAme).compareTo(compStu.firstName + compStu.lastNAme);
+        return 0;
     }
 }
