@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
 
 public class ClassroomTest {
     @Test
@@ -96,6 +97,7 @@ public class ClassroomTest {
         System.out.println("===========================");
         System.out.println(postEnrollmentAsString);
         System.out.println();
+
     }
 
     @Test
@@ -126,6 +128,34 @@ public class ClassroomTest {
         System.out.println("===========================");
         System.out.println(postEnrollmentAsString);
         System.out.println();
+    }
+    @Test
+    public void getGradeBook() {
+        ArrayList<Double> s2Scores = new ArrayList<Double>(Arrays.asList(100.0,150.0));
+        ArrayList<Double> s1Scores = new ArrayList<Double>(Arrays.asList(225.0,25.0));
+        ArrayList<Double> s3Scores = new ArrayList<Double>(Arrays.asList(200.0,150.0));
+        ArrayList<Double> s4Scores = new ArrayList<Double>(Arrays.asList(75.0,125.0));
+
+        Student s1 = new Student("student", "one", s1Scores);
+        Student s2 = new Student("estudent", "two", s2Scores);
+        Student s3 = new Student("student", "three", s3Scores);
+        Student s4 = new Student("student", "four", s4Scores);
+
+        Student[] students = {s1, s2, s3, s4};
+        Classroom classroom = new Classroom(students);
+
+
+        Map postEnrollment = classroom.getGradeBook();
+
+
+        // Then
+
+        String postEnrollmentAsString = String.valueOf(postEnrollment.entrySet());
+
+
+
+        System.out.println(postEnrollmentAsString);
+
     }
 }
 

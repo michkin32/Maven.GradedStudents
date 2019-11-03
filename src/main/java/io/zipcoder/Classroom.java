@@ -1,8 +1,6 @@
 package io.zipcoder;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.*;
 
 public class Classroom {
 
@@ -58,7 +56,16 @@ public class Classroom {
                 Arrays.sort(students, Collections.reverseOrder());
                         return students;
                 }
+            public Map getGradeBook(){
+                Map<String, Student> gradeBook = new TreeMap();
 
+                for (Student e : students){
+                    if (e.getAverageExamScore() / 100 > .90){
+                        gradeBook.put("A", e);
+                    }
+                }
+                return gradeBook;
+            }
 
 
         }
