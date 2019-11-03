@@ -75,7 +75,7 @@ public class Student implements Comparable<Student>{
             return 1;
         }
         else {
-            return (this.firstName).compareTo(compStu.firstName);
+            return -1 * (this.firstName).compareTo(compStu.firstName);
         }
     }
 }

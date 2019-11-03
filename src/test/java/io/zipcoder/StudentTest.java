@@ -77,7 +77,7 @@ public class StudentTest {
         // Given
         String firstName = "Donatello";
         String lastName = "Turtle";
-        ArrayList<Double> examScores = new ArrayList<Double>(Arrays.asList( 100.0, 95.0, 123.0, 96.0 ));
+        ArrayList<Double> examScores = new ArrayList<>(Arrays.asList(100.0, 95.0, 123.0, 96.0));
         Student student = new Student(firstName, lastName, examScores);
 
         String expected = "> Exam Scores:\n\tExam 1 -> 150.0\n" +
