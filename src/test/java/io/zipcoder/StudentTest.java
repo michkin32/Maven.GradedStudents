@@ -11,24 +11,50 @@ public class StudentTest {
     @Test
     public void getFirstName() {
         //Given
-        String firstName = "Donatello";
+        String firstName = "";
         String lastName = "Turtle";
         ArrayList<Double> examScores = new ArrayList<Double>(Arrays.asList( 100.0, 95.0, 123.0, 96.0 ));
         Student student = new Student(firstName, lastName, examScores);
 
-        String expected = "Leon";
+        student.setFirstName("Donatello");
+        String expected = "Donatello";
         String actual = student.getFirstName();
+        Assert.assertEquals(actual, expected);
     }
 
 
     @Test
     public void getLastNAme() {
+        //Given
+        String firstName = "Donatello";
+        String lastName = "Turtle";
+        ArrayList<Double> examScores = new ArrayList<Double>(Arrays.asList( 100.0, 95.0, 123.0, 96.0 ));
+        Student student = new Student(firstName, lastName, examScores);
+
+        student.setLastNAme("Turtle");
+        String expected = "Turtle";
+        String actual = student.getLastNAme();
+        Assert.assertEquals(actual, expected);
     }
 
 
 
     @Test
     public void getNumberOfExamsTaken() {
+        String firstName = "Donatello";
+        String lastName = "Turtle";
+        ArrayList<Double> examScores = new ArrayList<Double>(Arrays.asList( 100.0, 95.0, 123.0, 96.0 ));
+        Student student = new Student(firstName, lastName, examScores);
+        Integer expected = 4;
+
+        // When
+        Integer actual = student.getNumberOfExamsTaken();
+
+        // Then
+
+        Assert.assertEquals(expected,actual);
+
+
     }
 
     @Test

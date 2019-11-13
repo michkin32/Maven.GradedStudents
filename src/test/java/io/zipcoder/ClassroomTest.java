@@ -70,6 +70,7 @@ public class ClassroomTest {
         System.out.println("===========================");
         System.out.println(postEnrollmentAsString);
         System.out.println();
+        Assert.assertNotEquals(preEnrollment,postEnrollment);
     }
 
     @Test
@@ -97,6 +98,7 @@ public class ClassroomTest {
         System.out.println("===========================");
         System.out.println(postEnrollmentAsString);
         System.out.println();
+        Assert.assertEquals(preEnrollment,postEnrollment);
 
     }
 
@@ -131,10 +133,10 @@ public class ClassroomTest {
     }
     @Test
     public void getGradeBook() {
-        ArrayList<Double> s2Scores = new ArrayList<Double>(Arrays.asList(100.0,150.0));
-        ArrayList<Double> s1Scores = new ArrayList<Double>(Arrays.asList(225.0,25.0));
-        ArrayList<Double> s3Scores = new ArrayList<Double>(Arrays.asList(200.0,150.0));
-        ArrayList<Double> s4Scores = new ArrayList<Double>(Arrays.asList(75.0,125.0));
+        ArrayList<Double> s2Scores = new ArrayList<Double>(Arrays.asList(100.0,99.0,70.0,99.0));
+        ArrayList<Double> s1Scores = new ArrayList<Double>(Arrays.asList(85.0,85.0,85.0,75.0));
+        ArrayList<Double> s3Scores = new ArrayList<Double>(Arrays.asList(100.0,70.0,45.0,60.0));
+        ArrayList<Double> s4Scores = new ArrayList<Double>(Arrays.asList(25.0,20.0, 45.0, 60.0));
 
         Student s1 = new Student("student", "one", s1Scores);
         Student s2 = new Student("estudent", "two", s2Scores);
@@ -146,15 +148,44 @@ public class ClassroomTest {
 
 
         Map postEnrollment = classroom.getGradeBook();
-
+        String expected = "[A=Student Name: estudent two\n" +
+                "> Average Score: 92.0\n" +
+                "> Exam Scores:\n" +
+                "\tExam 1 -> 100.0\n" +
+                "\tExam 2 -> 99.0\n" +
+                "\tExam 3 -> 70.0\n" +
+                "\tExam 4 -> 99.0\n" +
+                ", B=Student Name: student one\n" +
+                "> Average Score: 82.5\n" +
+                "> Exam Scores:\n" +
+                "\tExam 1 -> 85.0\n" +
+                "\tExam 2 -> 85.0\n" +
+                "\tExam 3 -> 85.0\n" +
+                "\tExam 4 -> 75.0\n" +
+                ", D=Student Name: student three\n" +
+                "> Average Score: 68.75\n" +
+                "> Exam Scores:\n" +
+                "\tExam 1 -> 100.0\n" +
+                "\tExam 2 -> 70.0\n" +
+                "\tExam 3 -> 45.0\n" +
+                "\tExam 4 -> 60.0\n" +
+                ", F=Student Name: student four\n" +
+                "> Average Score: 37.5\n" +
+                "> Exam Scores:\n" +
+                "\tExam 1 -> 25.0\n" +
+                "\tExam 2 -> 20.0\n" +
+                "\tExam 3 -> 45.0\n" +
+                "\tExam 4 -> 60.0\n" +
+                "]";
 
         // Then
 
-        String postEnrollmentAsString = String.valueOf(postEnrollment.entrySet());
+        String actual = String.valueOf(postEnrollment.entrySet());
 
 
 
-        System.out.println(postEnrollmentAsString);
+        System.out.println(actual);
+        Assert.assertEquals(expected,actual);
 
     }
 }

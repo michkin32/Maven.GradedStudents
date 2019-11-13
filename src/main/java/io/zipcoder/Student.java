@@ -2,19 +2,20 @@ package io.zipcoder;
 
 import java.util.ArrayList;
 
-public class Student implements Comparable<Student>{
+public class Student implements Comparable<Student> {
 
 
     String firstName;
     String lastNAme;
     ArrayList<Double> examScores;
 
-    public Student(String firstName, String lastNname, ArrayList<Double> testScores){
+    public Student(String firstName, String lastNname, ArrayList<Double> testScores) {
         this.firstName = firstName;
         this.lastNAme = lastNname;
         this.examScores = testScores;
 
     }
+
     public String getFirstName() {
         return firstName;
     }
@@ -30,14 +31,16 @@ public class Student implements Comparable<Student>{
     public void setLastNAme(String lastNAme) {
         this.lastNAme = lastNAme;
     }
-    public Integer getNumberOfExamsTaken(){
+
+    public Integer getNumberOfExamsTaken() {
         return examScores.size();
 
     }
-    public String getExamScores(){
+
+    public String getExamScores() {
         String scores = "> Exam Scores:\n";
         Integer count = 1;
-        for (int i = 0; i<= examScores.size() -1; i++){
+        for (int i = 0; i <= examScores.size() - 1; i++) {
             scores += "\tExam " + count + " -> " + examScores.get(i) + "\n";
             count++;
         }
@@ -48,34 +51,34 @@ public class Student implements Comparable<Student>{
         examScores.add(score);
 
     }
-    public void setExamScore(int examNumber, double newScore){
+
+    public void setExamScore(int examNumber, double newScore) {
         examScores.set(examNumber, newScore);
     }
 
-    public Double getAverageExamScore(){
+    public Double getAverageExamScore() {
         Double sum = 0.0;
-        for (int i = 0; i <= examScores.size() -1; i++){
+        for (int i = 0; i <= examScores.size() - 1; i++) {
             sum += examScores.get(i);
         }
-        return sum/examScores.size();
+        return sum / examScores.size();
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         return "Student Name: " + getFirstName() + " " + getLastNAme() + "\n" + "> Average Score: " +
                 getAverageExamScore() + "\n" + getExamScores();
     }
 
     @Override
     public int compareTo(Student compStu) {
-        if(this.getAverageExamScore() < compStu.getAverageExamScore()){
+        if (this.getAverageExamScore() < compStu.getAverageExamScore()) {
             return -1;
-        }
-
-        else if(this.getAverageExamScore() > compStu.getAverageExamScore()){
+        } else if (this.getAverageExamScore() > compStu.getAverageExamScore()) {
             return 1;
-        }
-        else {
-            return -1 * (this.firstName).compareTo(compStu.firstName);
+        } else {
+            return (this.firstName).compareTo(compStu.firstName);
         }
     }
+
 }
